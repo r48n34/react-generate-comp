@@ -1,9 +1,11 @@
 {
     "name": "react-generate-comp",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "main": "index.js",
     "license": "MIT",
     "author": "reemo",
+    "homepage":"https://github.com/r48n34/react-generate-comp",
+    "repository": "https://github.com/r48n34/react-generate-comp",
     "bin": {
         "rt": "./bin/index.js"
     },
