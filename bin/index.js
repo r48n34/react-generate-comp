@@ -29,11 +29,11 @@ const parser = (0, yargs_1.default)(process.argv.slice(2)).options({
     },
 });
 (() => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(`react-generate-comp 1.0.9`);
+    console.log(`react-generate-comp 1.1.2`);
     const argv = yield parser.argv;
     const compName = argv.c;
     const isTypescript = argv.t;
     if (!!compName) {
-        (0, utili_1.generateFunctionComp)(isTypescript, compName.trim().split(" ").join(""));
+        (0, utili_1.generateFunctionComp)(isTypescript, compName.trim().split(' ').join(''));
     }
 }))();

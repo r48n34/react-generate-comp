@@ -18,13 +18,13 @@ const parser = yargs(process.argv.slice(2)).options({
 });
 
 (async () => {
-    console.log(`react-generate-comp 1.0.9`);
+    console.log(`react-generate-comp 1.1.2`);
     const argv = await parser.argv;
 
     const compName = argv.c;
     const isTypescript = argv.t;
 
     if (!!compName) {
-        generateFunctionComp(isTypescript, compName.trim().split(" ").join(""));
+        generateFunctionComp(isTypescript, compName.trim().split(' ').join(''));
     }
 })();

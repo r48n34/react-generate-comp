@@ -1,16 +1,19 @@
 import { genComponents } from './supportGen/generateCode';
 import { writeFolder } from './supportGen/writeFolder';
 
-function generateFunctionComp(isTypescript: boolean, compName: string = '') {
+function generateFunctionComp(isTypescript: boolean, compName = '') {
     try {
-        let dataText = genComponents(compName, isTypescript ? 'Typescript' : 'Javascript');
+        const dataText = genComponents(
+            compName,
+            isTypescript ? 'Typescript' : 'Javascript',
+        );
 
         let bigLetterStr: string =
             compName.length >= 1
                 ? compName.charAt(0).toUpperCase() + compName.slice(1)
                 : 'Test';
         bigLetterStr += isTypescript ? '.tsx' : '.jsx';
-        let success = writeFolder(bigLetterStr, dataText);
+        const success = writeFolder(bigLetterStr, dataText);
 
         if (success) {
             console.log(
