@@ -25,6 +25,6 @@ const parser = yargs(process.argv.slice(2)).options({
     const isTypescript = argv.t;
 
     if (!!compName) {
-        generateFunctionComp(isTypescript, compName.trim());
+        generateFunctionComp(isTypescript, compName.trim().split(" ").join(""));
     }
 })();

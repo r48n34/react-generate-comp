@@ -3,10 +3,7 @@ import { writeFolder } from './supportGen/writeFolder';
 
 function generateFunctionComp(isTypescript: boolean, compName: string = '') {
     try {
-        let dataText = genComponents(
-            compName,
-            isTypescript ? 'Typescript' : 'Javascript',
-        );
+        let dataText = genComponents(compName, isTypescript ? 'Typescript' : 'Javascript');
 
         let bigLetterStr: string =
             compName.length >= 1
