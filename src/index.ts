@@ -18,7 +18,7 @@ const parser = yargs(process.argv.slice(2)).options({
 });
 
 (async () => {
-    console.log(`react-generate-comp 1.0.5`);
+    console.log(`react-generate-comp 1.0.8`);
     const argv = await parser.argv;
 
     const compName = argv.c;

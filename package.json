@@ -1,7 +1,8 @@
 {
     "name": "react-generate-comp",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "main": "index.js",
+    "types": "index.d.ts",
     "license": "MIT",
     "author": "reemo",
     "homepage":"https://github.com/r48n34/react-generate-comp",
