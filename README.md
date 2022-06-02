@@ -23,8 +23,8 @@ yarn rt <typescript Flag> -c <Components name>
 
 e.g.
 Create a tsx components named "HelloComp"
-npx rt -t -c "helloComp"
+npx rgc -t -c "helloComp"
 
 Create a jsx components named "Yolocomp"
-npx rt -c "Yolocomp"
+npx rgc -c "Yolocomp"
 ```
