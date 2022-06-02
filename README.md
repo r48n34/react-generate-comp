@@ -2,6 +2,10 @@
 
 Generate React components in current execute directory by typing with CLI.
 
+### Features
+1. Create a basic components with ts/js config  
+2. Follow the practice of react official ts/js docs
+
 ### Setup / Install:
 Either global or not is Ok.
 ```
@@ -13,11 +17,13 @@ yarn global add react-generate-comp
 ### Usage:
 
 ```
-npx rgc <typescript Flag> -c <Components name>
-yarn rgc <typescript Flag> -c <Components name>
+npx rgc <typescript Flag> -c <Components name>  
+yarn rgc <typescript Flag> -c <Components name>  
 
-<typescript Flag>
--t, --typescript For enable typescript tsx generate
+<typescript Flag>  
+-t, --typescript For enable typescript tsx generate 
+
+<Components name>  
 -c, --generateComp for Generate comp name
 
 
@@ -27,6 +33,6 @@ npx rgc -t -c "helloComp"
 rgc -t -c "helloComp"
 
 Create a jsx components named "Yolocomp"
-npx rgc -c "Yolocomp"
-rgc -c "Yolocomp"
+npx rgc -c "yolocomp"
+rgc -c "yolocomp"
 ```
