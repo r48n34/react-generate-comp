@@ -3,18 +3,18 @@
 Generate React components in current execute directory by typing with CLI.
 
 ### Setup / Install:
-
+Either global or not is Ok.
 ```
-npm i react-generate-comp
+npm i -g react-generate-comp
 or
-yarn add react-generate-comp
+yarn global add react-generate-comp
 ```
 
 ### Usage:
 
 ```
-npx rt <typescript Flag> -c <Components name>
-yarn rt <typescript Flag> -c <Components name>
+npx rgc <typescript Flag> -c <Components name>
+yarn rgc <typescript Flag> -c <Components name>
 
 <typescript Flag>
 -t, --typescript For enable typescript tsx generate
