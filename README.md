@@ -24,7 +24,9 @@ yarn rgc <typescript Flag> -c <Components name>
 e.g.
 Create a tsx components named "HelloComp"
 npx rgc -t -c "helloComp"
+rgc -t -c "helloComp"
 
 Create a jsx components named "Yolocomp"
 npx rgc -c "Yolocomp"
+rgc -c "Yolocomp"
 ```
