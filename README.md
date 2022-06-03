@@ -42,11 +42,11 @@ rgc -c "yolocomp"
 ```tsx
 // TestComp.tsx
 
-type TestProps = {
+type TestCompProps = {
     data?: string;
 }
     
-function Test({ data }: TestProps){
+function TestComp({ data }: TestProps){
     return (
         <>
         <h1>Hello Test</h1>
@@ -54,7 +54,7 @@ function Test({ data }: TestProps){
     )
 }
     
-export default Test
+export default TestComp
 ```
 ```rgc -c "hiComp"```
 ```jsx
