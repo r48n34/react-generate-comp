@@ -9,7 +9,7 @@ function genComponents(
 
     const demoCode = `${
         lang === 'Typescript'
-            ? `type ${compNameUpper}Props = {\n    data: string;\n}`
+            ? `type ${compNameUpper}Props = {\n    data?: string;\n}`
             : ''
     }
     

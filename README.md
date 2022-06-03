@@ -36,3 +36,37 @@ Create a jsx components named "Yolocomp"
 npx rgc -c "yolocomp"
 rgc -c "yolocomp"
 ```
+
+## Generated template
+```rgc -t -c "testComp"```
+```tsx
+// TestComp.tsx
+
+type TestProps = {
+    data?: string;
+}
+    
+function Test({ data }: TestProps){
+    return (
+        <>
+        <h1>Hello Test</h1>
+        </>
+    )
+}
+    
+export default Test
+```
+```rgc -c "hiComp"```
+```jsx
+// HiComp.jsx
+
+function HiComp({ data }){
+    return (
+        <>
+        <h1>Hello HiComp</h1>
+        </>
+    )
+}
+    
+export default HiComp
+```

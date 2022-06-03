@@ -6,7 +6,7 @@ function genComponents(inputName = '', lang = 'Typescript') {
         ? inputName.charAt(0).toUpperCase() + inputName.slice(1)
         : 'Test';
     const demoCode = `${lang === 'Typescript'
-        ? `type ${compNameUpper}Props = {\n    data: string;\n}`
+        ? `type ${compNameUpper}Props = {\n    data?: string;\n}`
         : ''}
     
 function ${compNameUpper}({ data }${lang === 'Typescript' ? `: ${compNameUpper}Props` : ''}){
