@@ -31,6 +31,7 @@ e.g.
 Create a tsx components named "HelloComp"
 npx rgc -t -c "helloComp"
 rgc -t -c "helloComp"
+rgc -tc "helloComp"
 
 Create a jsx components named "Yolocomp"
 npx rgc -c "yolocomp"
@@ -49,7 +50,7 @@ type TestCompProps = {
 function TestComp({ data }: TestProps){
     return (
         <>
-        <h1>Hello Test</h1>
+        <h1>Hello TestComp</h1>
         </>
     )
 }
