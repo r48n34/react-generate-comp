@@ -1,17 +1,9 @@
-function genComponents(
-    inputName: string = '',
-    lang: string | null = 'Typescript',
-) {
-    const compNameUpper =
-        inputName.length >= 1
-            ? inputName.charAt(0).toUpperCase() + inputName.slice(1)
-            : 'Test';
+import { strToSmallAndBig } from "./bigSmallLetter";
 
-    const demoCode = `${
-        lang === 'Typescript'
-            ? `type ${compNameUpper}Props = {\n    data?: string;\n}`
-            : ''
-    }
+function genComponents( inputName: string = '', lang: string | null = 'Typescript' ) {
+    const [ compNameUpper, _ ] = strToSmallAndBig(inputName);
+
+    const demoCode = `${ lang === 'Typescript'? `type ${compNameUpper}Props = {\n    data?: string;\n}`: ''}
     
 function ${compNameUpper}({ data }${
         lang === 'Typescript' ? `: ${compNameUpper}Props` : ''
@@ -33,14 +25,8 @@ function genUseState(
     inputName: string = '',
     lang: string | null = 'Typescript',
 ) {
-    const lowLetterStr =
-        inputName.length >= 1
-            ? inputName.charAt(0).toLowerCase() + inputName.slice(1)
-            : 'values';
-    const bigLetterStr =
-        inputName.length >= 1
-            ? inputName.charAt(0).toUpperCase() + inputName.slice(1)
-            : 'Values';
+
+    const [ bigLetterStr, lowLetterStr ] = strToSmallAndBig(inputName);
 
     const demoCode = `
 const [ ${lowLetterStr}, set${bigLetterStr} ] = useState${

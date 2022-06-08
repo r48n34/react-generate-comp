@@ -39,6 +39,7 @@ const parser = (0, yargs_1.default)(process.argv.slice(2)).options({
     const isTypescript = argv.t;
     const compName = argv.c;
     const sliceName = argv.s;
+    console.log(compName, sliceName);
     if (!!compName && !!sliceName) {
         return;
     }
