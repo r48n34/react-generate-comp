@@ -112,7 +112,7 @@ export const { addItem } = todoSlice.actions
 export default todoSlice.reducer
 ```
 
-```rgc -t -s "todo"```
+```rgc -s "todo"```
 ```jsx
 // TodoSlice.jsx
 import { createSlice } from '@reduxjs/toolkit'
