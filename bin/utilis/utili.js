@@ -19,7 +19,7 @@ function generateFunctionComp(isTypescript, method = 'Comp', compName = '') {
         bigLetterStr += isTypescript ? '.tsx' : '.jsx';
         const success = (0, writeFolder_1.writeFolder)(bigLetterStr, dataText);
         if (success) {
-            console.log(`Writing components "${compName}" to "${process.cwd()}" Done.`);
+            console.log("Writing components", "\x1b[33m", compName, "\x1b[37m", " to ", "\x1b[33m", process.cwd(), "\x1b[37m", " done");
             return;
         }
     }

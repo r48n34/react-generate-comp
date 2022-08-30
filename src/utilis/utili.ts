@@ -22,7 +22,15 @@ function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'C
 
         if (success) {
             console.log(
-                `Writing components "${compName}" to "${process.cwd()}" Done.`,
+                "Writing components", 
+                "\x1b[33m",
+                compName,
+                "\x1b[37m",
+                "to",
+                "\x1b[33m",
+                process.cwd(),
+                "\x1b[37m",
+                "done."
             );
             return;
         }
