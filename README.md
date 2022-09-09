@@ -8,7 +8,6 @@ Generate React components in current execute directory by typing with CLI.
 3. Generate Components / Slice in one line
 
 ### Setup / Install:
-Either global or not is Ok.
 ```
 npm i -g react-generate-comp
 or
@@ -16,14 +15,13 @@ yarn global add react-generate-comp
 ```
 
 ### Usage:
-
 ```
 Generate Components
-npx rgc <typescript Flag> -c <Components name>  
-yarn rgc <typescript Flag> -c <Components name> 
+rgc <typescript Flag> -c <Components name>  
+rgc <typescript Flag> -c <Components name> 
 
 Generate RTK Slice
-yarn rgc <typescript Flag> -s <Slice name> 
+rgc <typescript Flag> -s <Slice name> 
 
 <typescript Flag>  
 -t, --typescript For enable typescript tsx generate 
@@ -54,7 +52,6 @@ rgc -s "notTodo"
 ```rgc -t -c "testComp"```
 ```tsx
 // TestComp.tsx
-
 type TestCompProps = {
     data?: string;
 }
@@ -73,7 +70,6 @@ export default TestComp
 ```rgc -c "hiComp"```
 ```jsx
 // HiComp.jsx
-
 function HiComp({ data }){
     return (
         <>
@@ -91,7 +87,7 @@ export default HiComp
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface TodoState { 
- data: any[] 
+    data: any[] 
 }
 
 const initialState:TodoState = {
