@@ -5,7 +5,9 @@ import { writeFolder } from './supportGen/writeFolder';
 
 function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'Comp',compName = '') {
     try {
+
         let dataText:string = "";
+
         if(method === "Comp"){
             dataText = genComponents( compName, isTypescript ? 'Typescript' : 'Javascript' );
         }
@@ -21,6 +23,7 @@ function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'C
         const success = writeFolder(bigLetterStr, dataText);
 
         if (success) {
+            
             console.log(
                 "Writing components", 
                 "\x1b[33m",
@@ -32,6 +35,7 @@ function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'C
                 "\x1b[37m",
                 "done."
             );
+
             return;
         }
     } catch (error: any) {
