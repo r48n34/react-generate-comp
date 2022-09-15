@@ -12,5 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install modules
       run: yarn
+    - name: Install latest rgc
+      run: npm i -g react-generate-comp
     - name: Run tests
       run: yarn test
