@@ -9,5 +9,10 @@
         "skipLibCheck": true,
         "declaration": true,
         "resolveJsonModule": true
-    }
+    },
+    "exclude": [
+        "node_modules",
+        "test",
+        "bin"
+    ]
 }
