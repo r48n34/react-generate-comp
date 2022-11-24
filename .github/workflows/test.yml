@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install xsel
-      run: sudo apt install xsel
+      run: xvfb-run npm t
     - name: Install modules
       run: yarn
     - name: Install latest rgc
