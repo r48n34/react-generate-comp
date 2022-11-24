@@ -5,10 +5,10 @@ Generate React components in current execute directory by typing with CLI.
 ### Features
 1. Create a basic components with ts/js config  
 2. Follow the practice of react official ts/js docs
-3. Generate Components / Slice in one line
+3. Generate Components / Slice / useState in one line
 
 ### Setup / Install:
-```
+``` bash
 npm i -g react-generate-comp
 or
 yarn global add react-generate-comp
@@ -55,18 +55,19 @@ rgc -u number
 ```
 
 ## Generated template
-```rgc -t -c "testComp"``` or ```rgc -tc "testComp"```
-(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/TestComp.tsx]
+```rgc -t -c "testComp"``` or ```rgc -tc "testComp"```  
+[Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TestComp.tsx)
 
-```rgc -c "hiComp"```
-(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/HiComp.jsx]
+```rgc -c "hiComp"```  
+[Template](https://github.com/r48n34/react-generate-comp/tree/main/template/HiComp.jsx)
 
-```rgc -t -s "todo"``` or ```rgc -ts "todo"```
-(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.tsx]
+```rgc -t -s "todo"``` or ```rgc -ts "todo"```  
+[Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.tsx)
 
-```rgc -s "todo"```
-(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx]
+```rgc -s "todo"```  
+[Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx)
 
-## Road map
-[ ] First class typescript support
-[ ] Generate other related stuff 
+## Road map  
+
+[x] First class typescript support  
+[ ] Generate other related stuff   
