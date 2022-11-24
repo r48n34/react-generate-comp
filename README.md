@@ -15,7 +15,7 @@ yarn global add react-generate-comp
 ```
 
 ### Usage:
-```
+``` bash
 Generate Components
 rgc <typescript Flag> -c <Components name>  
 rgc <typescript Flag> -c <Components name> 
@@ -32,6 +32,9 @@ rgc <typescript Flag> -s <Slice name>
 <Slice name>  
 -s, --generateRTKSlice  Generate RTK slice
 
+<useState name>  
+-u, --generateUseState  Generate useState line code to your clipboard
+
 e.g.
 Create a tsx components named "HelloComp"
 rgc -t -c "helloComp"
@@ -46,6 +49,9 @@ rgc -ts "todo"
 
 Create a jsx RTK Slice named "NotTodoSlice"
 rgc -s "notTodo"
+
+Create a useState named with "[ number, setNumber ]"
+rgc -u number
 ```
 
 ## Generated template

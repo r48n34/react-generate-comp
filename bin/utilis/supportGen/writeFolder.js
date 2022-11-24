@@ -1,14 +1,1 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeFolder = void 0;
-const fs_1 = __importDefault(require("fs"));
-const path_1 = __importDefault(require("path"));
-function writeFolder(filename, data) {
-    let currentPath = path_1.default.join(process.cwd(), filename);
-    fs_1.default.writeFileSync(currentPath, data);
-    return true;
-}
-exports.writeFolder = writeFolder;
+"use strict";Object.defineProperty(exports,"__esModule",{value:true});Object.defineProperty(exports,"writeFolder",{enumerable:true,get:()=>writeFolder});const _fs=_interopRequireDefault(require("fs"));const _path=_interopRequireDefault(require("path"));function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}function writeFolder(filename,data){let currentPath=_path.default.join(process.cwd(),filename);_fs.default.writeFileSync(currentPath,data);return true}

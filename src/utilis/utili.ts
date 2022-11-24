@@ -3,7 +3,7 @@ import { genComponents } from './supportGen/generateCode';
 import { genRtkSlice } from './supportGen/genRTKSlice';
 import { writeFolder } from './supportGen/writeFolder';
 
-function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'Comp',compName = '') {
+function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'Comp', compName = '') {
     try {
 
         let dataText:string = "";

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs/yargs';
+import { useStateGen } from './utilis/useStateGenUtilis';
 import { generateFunctionComp } from './utilis/utili';
 
 const parser = yargs(process.argv.slice(2)).options({
@@ -20,6 +21,11 @@ const parser = yargs(process.argv.slice(2)).options({
         describe: 'Generate RTK slice',
         alias: 'generateRTKSlice',
     },
+    u: {
+        type: 'string',
+        describe: 'Generate useState line to your clipboard',
+        alias: 'generateUseState',
+    },
 });
 
 (async () => {
@@ -29,17 +35,25 @@ const parser = yargs(process.argv.slice(2)).options({
     const isTypescript = argv.t;
     const compName = argv.c;
     const sliceName = argv.s;
+    const useStateName = argv.u;
 
     if(!!compName && !!sliceName){
         return;
     }
 
     if (!!compName) {
-        generateFunctionComp(isTypescript, "Comp" ,compName.trim().split(' ').join(''));
+        generateFunctionComp(isTypescript, "Comp", compName.trim().split(' ').join(''));
+        return
     }
 
     if(!!sliceName){
-        generateFunctionComp(isTypescript, "Slice" ,sliceName.trim().split(' ').join(''));
+        generateFunctionComp(isTypescript, "Slice", sliceName.trim().split(' ').join(''));
+        return
+    }
+
+    if(!!useStateName){
+        useStateGen(useStateName);
+        return
     }
 
 })();
