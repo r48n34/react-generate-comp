@@ -1,6 +1,6 @@
 {
     "name": "react-generate-comp",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "main": "index.js",
     "types": "index.d.ts",
     "license": "MIT",
@@ -10,6 +10,7 @@
     "bin": {
         "rgc": "./bin/index.js"
     },
+    "files": ["/bin"],
     "scripts": {
         "tsc": "tsc",
         "lint": "eslint '**/*.{js,ts}' --fix",
