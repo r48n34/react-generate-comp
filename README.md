@@ -70,4 +70,4 @@ rgc -u number
 ## Road map  
 
 [x] First class typescript support  
-[ ] Generate other related stuff   
+[ ] Generate other related stuff

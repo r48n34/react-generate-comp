@@ -4,11 +4,12 @@ import { strToSmallAndBig } from "./supportGen/bigSmallLetter";
 function useStateGen(str:string): string {
 
     try {
-        str = str.trim();
-    
+        
         if(!str || str === ""){
            return "" 
         }
+
+        str = str.trim();
     
         const bigSmall = strToSmallAndBig(str)
         const genCode = `const [ ${bigSmall[1]}, set${bigSmall[0]} ] = useState<any>(0);`
@@ -26,7 +27,7 @@ function useStateGen(str:string): string {
     } 
     catch (error: any) {
         console.log(error.message);
-        return 
+        return ""
     }
 
 }
