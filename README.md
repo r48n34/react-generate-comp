@@ -55,84 +55,18 @@ rgc -u number
 ```
 
 ## Generated template
-```rgc -t -c "testComp"```
-```tsx
-// TestComp.tsx
-type TestCompProps = {
-    data?: string;
-}
-    
-function TestComp({ data }: TestProps){
-    return (
-        <>
-        <h1>Hello TestComp</h1>
-        </>
-    )
-}
-    
-export default TestComp
-```
+```rgc -t -c "testComp"``` or ```rgc -tc "testComp"```
+(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/TestComp.tsx]
 
 ```rgc -c "hiComp"```
-```jsx
-// HiComp.jsx
-function HiComp({ data }){
-    return (
-        <>
-        <h1>Hello HiComp</h1>
-        </>
-    )
-}
-    
-export default HiComp
-```
+(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/HiComp.jsx]
 
-```rgc -t -s "todo"```
-```tsx
-// TodoSlice.tsx
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-export interface TodoState { 
-    data: any[] 
-}
-
-const initialState:TodoState = {
-    data: []
-}
-
-const todoSlice = createSlice({
-    name: 'todo',
-    initialState: initialState,
-    reducers: {
-        addItem(state:TodoState, action:PayloadAction<number>) {
-            state.data.push(action.payload);
-        },
-    }
-})
-
-export const { addItem } = todoSlice.actions
-export default todoSlice.reducer
-```
+```rgc -t -s "todo"``` or ```rgc -ts "todo"```
+(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.tsx]
 
 ```rgc -s "todo"```
-```jsx
-// TodoSlice.jsx
-import { createSlice } from '@reduxjs/toolkit'
+(template)[https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx]
 
-const initialState = {
-    data: []
-}
-
-const todoSlice = createSlice({
-    name: 'todo',
-    initialState: initialState,
-    reducers: {
-        addItem(state, action) {
-            state.data.push(action.payload);
-        },
-    }
-})
-
-export const { addItem } = todoSlice.actions
-export default todoSlice.reducer
-```
+## Road map
+[ ] First class typescript support
+[ ] Generate other related stuff 
