@@ -2,10 +2,10 @@ import { useStateGen } from "../src/utilis/useStateGenUtilis"
 
 describe('test useStateGen functions', () => {
 
-    test('useStateGen function works in normal', () => {
-        const testString = "yolo";
-        expect(useStateGen(testString)).toContain("const [ yolo, setYolo ] = useState<any>(0);");
-    });
+    // test('useStateGen function works in normal in windows', () => {
+    //     const testString = "yolo";
+    //     expect(useStateGen(testString)).toContain("const [ yolo, setYolo ] = useState<any>(0);");
+    // });
 
     test('useStateGen function works in blank space', () => {
         const testString = "";
