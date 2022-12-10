@@ -1,7 +1,8 @@
-import { strToSmallAndBig } from './supportGen/bigSmallLetter';
-import { genComponents } from './supportGen/generateCode';
 import { genRtkSlice } from './supportGen/genRTKSlice';
 import { writeFolder } from './supportGen/writeFolder';
+
+import { genComponents } from './supportGen/generateCode';
+import { strToSmallAndBig } from './supportGen/bigSmallLetter';
 
 function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'Comp', compName = '') {
     try {
