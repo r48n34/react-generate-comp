@@ -68,9 +68,8 @@ rgc -u number
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx)
 
 ## Road map  
-
-[x] First class typescript support  
-[ ] Generate other related stuff
+- [x] First class typescript support  
+- [ ] Generate other related stuff
 
 ## Dev logs
 
