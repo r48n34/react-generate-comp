@@ -37,8 +37,6 @@ const parser = yargs(process.argv.slice(2)).options({
     const compName = argv.c;
     const sliceName = argv.s;
     const useStateName = argv.u;
-
-    console.log(argv);
     
     if(!!compName && !!sliceName){
         return;
