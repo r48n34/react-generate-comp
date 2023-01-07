@@ -3,6 +3,7 @@
 import yargs from 'yargs/yargs';
 import { useStateGen } from './utilis/useStateGenUtilis';
 import { generateFunctionComp } from './utilis/utili';
+import { activePromptOptions } from './utilis/promptGen/promptSelect';
 
 const parser = yargs(process.argv.slice(2)).options({
     t: {
@@ -37,6 +38,8 @@ const parser = yargs(process.argv.slice(2)).options({
     const sliceName = argv.s;
     const useStateName = argv.u;
 
+    console.log(argv);
+    
     if(!!compName && !!sliceName){
         return;
     }
@@ -55,5 +58,7 @@ const parser = yargs(process.argv.slice(2)).options({
         useStateGen(useStateName);
         return
     }
+
+    await activePromptOptions()
 
 })();

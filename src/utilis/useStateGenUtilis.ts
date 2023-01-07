@@ -1,5 +1,6 @@
 import clipboard from "clipboardy";
 import { strToSmallAndBig } from "./supportGen/bigSmallLetter";
+import { yellow } from 'kolorist'
 
 function useStateGen(str:string): string {
 
@@ -17,9 +18,7 @@ function useStateGen(str:string): string {
         clipboard.writeSync(genCode);
         console.log(
             "Success to copy", 
-            "\x1b[33m",
-            genCode,
-            "\x1b[37m",
+            yellow(genCode),
             "to your clipboard."
         );
 

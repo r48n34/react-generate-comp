@@ -1,8 +1,11 @@
+import { yellow } from 'kolorist'
+
 import { genRtkSlice } from './supportGen/genRTKSlice';
 import { writeFolder } from './supportGen/writeFolder';
 
 import { genComponents } from './supportGen/generateCode';
 import { strToSmallAndBig } from './supportGen/bigSmallLetter';
+
 
 function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'Comp', compName = '') {
     try {
@@ -26,15 +29,10 @@ function generateFunctionComp(isTypescript: boolean, method:"Comp"| "Slice" = 'C
         if (success) {
             
             console.log(
-                "Writing components", 
-                "\x1b[33m",
-                compName,
-                "\x1b[37m",
-                "to",
-                "\x1b[33m",
-                process.cwd(),
-                "\x1b[37m",
-                "done."
+                "Success to write", 
+                yellow(bigLetterStr),
+                "in",
+                yellow(process.cwd())
             );
 
             return;

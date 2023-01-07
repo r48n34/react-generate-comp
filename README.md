@@ -71,3 +71,13 @@ rgc -u number
 
 [x] First class typescript support  
 [ ] Generate other related stuff
+
+## Dev logs
+
+### - 1.2.x
+1. Added `rgc -u <setState_name>` generate function.
+
+### - 1.3.0
+1. Updated generate log syntax.
+2. Now typing `rgc` will active a prompts interface to select regarding generate stuff. 
+3. Color log improvement.
