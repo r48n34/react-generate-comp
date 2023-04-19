@@ -1,7 +1,10 @@
 import { createFolderIfNotExist, genInsideFile } from "./initHelper";
 
 export function rawGen(isTypescript: boolean = true){
-    const folderList = ["pages", "interface", "components", "utils"].map( v => createFolderIfNotExist(v) );
+    let folderGenList = ["pages", "components", "utils"];
+    isTypescript && (folderGenList.push("interface"))
+
+    const folderList = folderGenList.map( v => createFolderIfNotExist(v) );
     
     // pages
     if(folderList[0]){
@@ -10,7 +13,7 @@ export function rawGen(isTypescript: boolean = true){
     }
 
     // components
-    if(folderList[2]){
+    if(folderList[1]){
         genInsideFile("components", "appleComp", "Comp", isTypescript);
     }
 

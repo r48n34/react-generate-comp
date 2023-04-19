@@ -6,7 +6,7 @@ Generate React components in current execute directory by typing with CLI.
 1. Create a basic components with ts / js config  
 2. Follow the practice of react official ts / js docs
 3. Generate Components / Slice / useState in one line
-4. No configs, easy to use.
+4. No configs, easy to use with prompts.
 
 ### Setup / Install:
 ``` bash
@@ -34,7 +34,7 @@ rgc <typescript Flag> -s <Slice name>
 <useState name>  
 -u, --generateUseState  Generate useState line code to your clipboard
 
-e.g.
+Usage:
 Create a tsx components named "HelloComp"
 rgc -t -c "helloComp"
 rgc -tc "helloComp"
@@ -74,6 +74,9 @@ rgc --init
 - [x] Generate other related stuff
 
 ## Dev logs
+
+### 1.4.1
+1. `init project javascript` will not generate interface folder from now.
 
 ### 1.4.0
 1. Added `rgc --init` prompt features.
