@@ -1,54 +1,61 @@
-import path from "path";
-import fs from "fs";
-import { yellow, cyan, lightRed } from 'kolorist'
-import { createCompTest } from "../utili";
+import prompts from 'prompts';
+import { lightYellow, blue, cyan, yellow } from 'kolorist'
+import { rawGen } from "./rawGen";
+import { rtkGen } from './rtkGen';
 
-function createFolderIfNotExist(folderName: string): boolean{
+interface PromptReturnObj {
+    type: "raw" | "rtk"
+    lang: "ts" | "js"
+}
 
-    try {   
-        const folderPath = path.join(process.cwd(), folderName);
+export async function initTemplate(){
+
+    try {
+        
+        const questions = [
+            {
+                type: 'select',
+                name: 'type',
+                message: 'Select a template to generate',
+                choices: [
+                  { title: lightYellow("Raw"), value: "raw" },
+                  { title: cyan("RTK react"), value: "rtk" },
+                ],
+            },
+            {
+                type: 'select',
+                name: 'lang',
+                message: 'Select a languages',
+                choices: [
+                  { title: blue("Typescript"), value: "ts" },
+                  { title: yellow("Javascript"), value: "js" },
+                ],
+            }
+        ] as any
     
-        if (!fs.existsSync(folderPath)){
-            fs.mkdirSync(folderPath);
-            console.log("Success to create folder", yellow(folderName));
-            return true
+        const resPrompt: PromptReturnObj = await prompts(
+            questions, 
+            { 
+                onCancel: () => { throw new Error("Prompt stopped") }
+            }
+        );
+
+        const isTypescript = resPrompt.lang === "ts";
+
+        if(resPrompt.type === "raw"){
+            rawGen(isTypescript);
         }
-        else{
-            console.log(lightRed("Folder"), yellow(folderName),  lightRed("already exist."));
-            return false
+        else if(resPrompt.type === "rtk"){
+            rtkGen(isTypescript);
         }
+
+        console.log(
+            cyan("\nDone! Enjoy your new project :)")
+        );
+        
     } 
-    catch (error: any) {
-        console.log(lightRed(error.message)); 
-        return false
-    }
-}
-
-// Comp
-function genInsideFile(folderName: string, fileName: string){
-    let [ finalfileName, dataText ] = createCompTest(true, "Comp", fileName);
-
-    let currentPath = path.join(process.cwd(), folderName, finalfileName);
-    fs.writeFileSync(currentPath, dataText);
-}
-
-export function initTemplate(){
-
-    const folderList = ["pages", "interface", "components"].map( v => createFolderIfNotExist(v) );
-
-    // pages
-    if(folderList[0]){
-        genInsideFile("pages", "homePage");
-        genInsideFile("pages", "otherPage");
+    catch (error) {
+        return
     }
 
-    // components
-    if(folderList[2]){
-        genInsideFile("components", "appleComp");
-    }
-
-    console.log(
-        cyan("Done, enjoy your new project :)")
-    );
-    
 }

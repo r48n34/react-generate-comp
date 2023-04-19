@@ -52,8 +52,7 @@ rgc -s "notTodo"
 Create a useState named with "[ number, setNumber ]"
 rgc -u number
 
-Create a set of folder and file for init the project
-(pages, interface, components)
+Create a set of folder and file for init the new Vite / CRP project
 rgc --init
 ```
 
@@ -75,6 +74,10 @@ rgc --init
 - [x] Generate other related stuff
 
 ## Dev logs
+
+### 1.4.0
+1. Added `rgc --init` prompt features.
+2. Added RTK generate in init project features.
 
 ### - 1.3.2
 1. Fixing bug on prompt cancel issues.
