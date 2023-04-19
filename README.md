@@ -1,5 +1,7 @@
 # react-generate-comp
 
+<a href="https://www.npmjs.com/package/react-generate-comp"> <img src="https://img.shields.io/npm/v/react-generate-comp" /> </a>
+
 Generate React components in current execute directory by typing with CLI.
 
 ### Features
