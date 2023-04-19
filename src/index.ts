@@ -4,6 +4,7 @@ import yargs from 'yargs/yargs';
 import { useStateGen } from './utilis/useStateGenUtilis';
 import { generateFunctionComp } from './utilis/utili';
 import { activePromptOptions } from './utilis/promptGen/promptSelect';
+import { initTemplate } from './utilis/initTemplate/initTemplate';
 
 const parser = yargs(process.argv.slice(2)).options({
     t: {
@@ -27,6 +28,11 @@ const parser = yargs(process.argv.slice(2)).options({
         describe: 'Generate useState line to your clipboard',
         alias: 'generateUseState',
     },
+    i: {
+        type: 'boolean',
+        describe: 'Init a new project require file and folder',
+        alias: 'init',
+    },
 });
 
 (async () => {
@@ -37,8 +43,14 @@ const parser = yargs(process.argv.slice(2)).options({
     const compName = argv.c;
     const sliceName = argv.s;
     const useStateName = argv.u;
+    const init = argv.i;
     
     if(!!compName && !!sliceName){
+        return;
+    }
+
+    if(!!init){
+        initTemplate();
         return;
     }
 

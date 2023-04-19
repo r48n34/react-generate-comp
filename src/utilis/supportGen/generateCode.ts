@@ -3,8 +3,7 @@ import { strToSmallAndBig } from "./bigSmallLetter";
 function genComponents( inputName: string = '', lang: string | null = 'Typescript' ) {
     const [ compNameUpper, _ ] = strToSmallAndBig(inputName);
 
-    const demoCode = `${ lang === 'Typescript'? `type ${compNameUpper}Props = {\n    data?: any;\n}`: ''}
-    
+    const demoCode = `${ lang === 'Typescript'? `type ${compNameUpper}Props = {\n    data?: any;\n}\n`: ``}
 function ${compNameUpper}({ data }${
         lang === 'Typescript' ? `: ${compNameUpper}Props` : ''
     }){

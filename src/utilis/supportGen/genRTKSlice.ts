@@ -4,7 +4,7 @@ function genRtkSlice ( inputName: string = '', lang: string | null = 'Typescript
     const [ bigLetterStr, lowLetterStr ] = strToSmallAndBig(inputName);
     const demoCode = `import { createSlice${lang === "Typescript" ? ", PayloadAction" : ""} } from '@reduxjs/toolkit'
 
-${lang === "Typescript" ? `export interface ${bigLetterStr}State { \n data: any[] \n}` : ""}
+${lang === "Typescript" ? `export interface ${bigLetterStr}State { \n    data: any[] \n}` : ""}
 
 const initialState${lang === "Typescript" ? `:${bigLetterStr}State` : ""} = {
     data: []

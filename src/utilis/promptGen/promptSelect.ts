@@ -13,6 +13,15 @@ export async function activePromptOptions(){
 
     const questions = [
         {
+            type: 'select',
+            name: 'type',
+            message: 'Select a type to generate',
+            choices: [
+              { title: cyan("Components"), value: "Comp" },
+              { title: lightGreen("RTK Slice"), value: "Slice" },
+            ],
+        },
+        {
           type: 'text',
           name: 'fileName',
           initial: "users",
@@ -32,15 +41,6 @@ export async function activePromptOptions(){
         },
         {
           type: 'select',
-          name: 'type',
-          message: 'Select a type to generate',
-          choices: [
-            { title: cyan("Components"), value: "Comp" },
-            { title: lightGreen("RTK Slice"), value: "Slice" },
-          ],
-        },
-        {
-          type: 'select',
           name: 'lang',
           message: 'Select a languages',
           choices: [
@@ -51,14 +51,20 @@ export async function activePromptOptions(){
     ] as any;
 
     try {
-        const res: PromptReturnObj = await prompts(questions);
+        const res: PromptReturnObj = await prompts(
+            questions, 
+            { 
+                onCancel: () => { throw new Error("Prompt stopped") }
+            }
+        );
         
         generateFunctionComp(
             res.lang === "ts",
             res.type,
             res.fileName.trim().split(' ').join('')
         );
-    } catch (error: any) {
+    } 
+    catch (error: any) {
         return
     }
     

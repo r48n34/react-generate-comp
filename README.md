@@ -3,15 +3,14 @@
 Generate React components in current execute directory by typing with CLI.
 
 ### Features
-1. Create a basic components with ts/js config  
-2. Follow the practice of react official ts/js docs
+1. Create a basic components with ts / js config  
+2. Follow the practice of react official ts / js docs
 3. Generate Components / Slice / useState in one line
+4. No configs, easy to use.
 
 ### Setup / Install:
 ``` bash
 npm i -g react-generate-comp
-or
-yarn global add react-generate-comp
 ```
 
 ### Usage:
@@ -52,6 +51,10 @@ rgc -s "notTodo"
 
 Create a useState named with "[ number, setNumber ]"
 rgc -u number
+
+Create a set of folder and file for init the project
+(pages, interface, components)
+rgc --init
 ```
 
 ## Generated template
@@ -69,14 +72,20 @@ rgc -u number
 
 ## Road map  
 - [x] First class typescript support  
-- [ ] Generate other related stuff
+- [x] Generate other related stuff
 
 ## Dev logs
 
-### - 1.2.x
-1. Added `rgc -u <setState_name>` generate function.
+### - 1.3.2
+1. Fixing bug on prompt cancel issues.
+2. Fixing RTKSlice Ts spacing issues.
+3. Better reminder prompt.
+4. Added `rgc --init` functions for init project folder data.
 
 ### - 1.3.0
-1. Updated generate log syntax.
-2. Now typing `rgc` will active a prompts interface to select regarding generate stuff. 
-3. Color log improvement.
+1. Updated generate log syntax.  
+2. Now typing `rgc` will active a prompts interface to select regarding generate stuff.   
+3. Color log improvement.  
+
+### - 1.2.x  
+1. Added `rgc -u <setState_name>` generate function.  
