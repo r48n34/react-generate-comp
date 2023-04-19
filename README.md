@@ -77,10 +77,10 @@ rgc --init
 
 ## Dev logs
 
-### 1.4.1
+### - 1.4.1 / 1.4.2
 1. `init project javascript` will not generate interface folder from now.
 
-### 1.4.0
+### - 1.4.0
 1. Added `rgc --init` prompt features.
 2. Added RTK generate in init project features.
 
