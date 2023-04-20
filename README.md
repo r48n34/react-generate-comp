@@ -1,13 +1,18 @@
 # react-generate-comp
 
-<a href="https://www.npmjs.com/package/react-generate-comp"> <img src="https://img.shields.io/npm/v/react-generate-comp" /> </a>
-
 Generate React components in current execute directory by typing with CLI.
 
+<p align="left">
+
+<a href="https://www.npmjs.com/package/react-generate-comp"> <img src="https://img.shields.io/npm/v/react-generate-comp" /> </a>
+<a href="https://github.com/r48n34/react-generate-comp"><img src="https://img.shields.io/github/actions/workflow/status/r48n34/react-generate-comp/test.yml" /></a>
+
+</p>
+
 ### Features
-1. Create a basic components with ts / js config  
-2. Follow the practice of react official ts / js docs
-3. Generate Components / Slice / useState in one line
+1. Create a basic components with ts / js config.  
+2. Follow the practice of react official ts / js docs.
+3. Generate Components / Slice / useState in one line.
 4. No configs, easy to use with prompts.
 
 ### Setup / Install:
@@ -74,6 +79,7 @@ rgc --init
 ## Road map  
 - [x] First class typescript support  
 - [x] Generate other related stuff
+- [ ] Init more template
 
 ## Dev logs
 
