@@ -1,4 +1,4 @@
-import { yellow } from 'kolorist'
+import { lightRed, yellow } from 'kolorist'
 
 import { genRtkSlice } from './supportGen/genRTKSlice';
 import { writeFolder } from './supportGen/writeFolder';
@@ -43,6 +43,13 @@ function generateFunctionComp(isTypescript: boolean, method: "Comp" | "Slice" = 
 
             return;
         }
+        else{
+            console.log(
+                yellow(fileName),
+                lightRed("already exist.")
+            );
+        }
+
     } catch (error: any) {
         console.log(error);
         return;

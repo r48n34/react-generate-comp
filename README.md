@@ -83,6 +83,9 @@ rgc --init
 
 ## Dev logs
 
+### - 1.4.3
+1. Cli '-c', '-s' will not overwrite file that already exist in the current path.
+
 ### - 1.4.1 / 1.4.2
 1. `init project javascript` will not generate interface folder from now.
 
