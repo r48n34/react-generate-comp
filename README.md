@@ -83,6 +83,9 @@ rgc --init
 
 ## Dev logs
 
+### - 1.4.5
+1. Add zustand template to `rgc --init`
+
 ### - 1.4.3
 1. Cli '-c', '-s' will not overwrite file that already exist in the current path.
 

@@ -1,7 +1,8 @@
 import prompts from 'prompts';
-import { lightYellow, blue, cyan, yellow } from 'kolorist'
+import { lightYellow, blue, cyan, yellow, green } from 'kolorist'
 import { rawGen } from "./rawGen";
 import { rtkGen } from './rtkGen';
+import { zustandGen } from './zustandGen';
 
 interface PromptReturnObj {
     type: "raw" | "rtk"
@@ -20,6 +21,7 @@ export async function initTemplate(){
                 choices: [
                   { title: lightYellow("Raw"), value: "raw" },
                   { title: cyan("RTK react"), value: "rtk" },
+                  { title: green("zustand"), value: "zustand" },
                 ],
             },
             {
@@ -47,6 +49,9 @@ export async function initTemplate(){
         }
         else if(resPrompt.type === "rtk"){
             rtkGen(isTypescript);
+        }
+        else if(resPrompt.type === "zustand"){
+            zustandGen(isTypescript);
         }
 
         console.log(
