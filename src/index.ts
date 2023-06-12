@@ -1,49 +1,58 @@
 #!/usr/bin/env node
+import { parseFlags } from "https://deno.land/x/cliffy@v0.25.7/flags/mod.ts";
 
-import yargs from 'yargs/yargs';
-import { useStateGen } from './utilis/useStateGenUtilis';
-import { generateFunctionComp } from './utilis/utili';
-import { activePromptOptions } from './utilis/promptGen/promptSelect';
-import { initTemplate } from './utilis/initTemplate/initTemplate';
+import { useStateGen } from './utilis/useStateGenUtilis.ts';
+import { generateFunctionComp } from './utilis/utili.ts';
+import { activePromptOptions } from './utilis/promptGen/promptSelect.ts';
+import { initTemplate } from './utilis/initTemplate/initTemplate.ts';
 
-const parser = yargs(process.argv.slice(2)).options({
-    t: {
-        type: 'boolean',
-        describe: 'Enable typescript mode',
-        default: false,
-        alias: 'typescript',
-    },
-    c: {
-        type: 'string',
-        describe: 'Generate comp name',
-        alias: 'generateComp',
-    },
-    s: {
-        type: 'string',
-        describe: 'Generate RTK slice',
-        alias: 'generateRTKSlice',
-    },
-    u: {
-        type: 'string',
-        describe: 'Generate useState line to your clipboard',
-        alias: 'generateUseState',
-    },
-    i: {
-        type: 'boolean',
-        describe: 'Init a new project require file and folder',
-        alias: 'init',
-    },
+const  { flags } = parseFlags(Deno.args, {
+    flags: [{
+      name: "javascript",
+      aliases: ["j", "javascript"],
+      standalone: false,
+    }, 
+    {
+      name: "generateComp",
+      aliases: ["c", "comp"],
+      standalone: false,
+      type: "string",
+    }, 
+    {
+      name: "generateRTKSlice",
+      aliases: ["s", "slice"],
+      standalone: false,
+      type: "string",
+    }, 
+    {
+      name: "generateUseState",
+      aliases: ["u", "state"],
+      standalone: false,
+      type: "string",
+    }, 
+    {
+      name: "init",
+      aliases: ["i", "init"],
+      standalone: true,
+      type: "boolean",
+    }, 
+    ],
 });
 
-(async () => {
-    console.log(`react-generate-comp`);
-    const argv = await parser.argv;
+if (import.meta.main) {
+    console.log(flags);
+    main()
+}
 
-    const isTypescript = argv.t;
-    const compName = argv.c;
-    const sliceName = argv.s;
-    const useStateName = argv.u;
-    const init = argv.i;
+async function main(){
+    console.log(`react-generate-comp`);
+    const argv = flags
+
+    const isTypescript = !argv.javascript;
+    const compName = argv.generateComp;
+    const sliceName = argv.generateRTKSlice;
+    const useStateName = argv.generateUseState;
+    const init = argv.init;
     
     if(!!compName && !!sliceName){
         return;
@@ -70,5 +79,10 @@ const parser = yargs(process.argv.slice(2)).options({
     }
 
     await activePromptOptions()
+}
 
-})();
+
+// (async () => {
+
+
+// })();

@@ -1,4 +1,4 @@
-import { strToSmallAndBig } from "./bigSmallLetter";
+import { strToSmallAndBig } from "./bigSmallLetter.ts";
 
 function genComponents( inputName: string = '', lang: string | null = 'Typescript' ) {
     const [ compNameUpper, _ ] = strToSmallAndBig(inputName);

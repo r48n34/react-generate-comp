@@ -1,7 +1,7 @@
-import prompts from 'prompts';
-import path from "path"
-import { blue, cyan, lightGreen, yellow } from 'kolorist'
-import { generateFunctionComp } from '../utili';
+import prompts from 'npm:prompts';
+import path from "node:path"
+import { blue, cyan, lightGreen, yellow } from 'npm:kolorist'
+import { generateFunctionComp } from '../utili.ts';
 
 interface PromptReturnObj {
     fileName: string

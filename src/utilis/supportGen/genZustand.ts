@@ -1,4 +1,4 @@
-import { strToSmallAndBig } from "./bigSmallLetter";
+import { strToSmallAndBig } from "./bigSmallLetter.ts";
 
 export function genZustand( storeName: string = '', isTypescript: boolean = true): string{
     const [ bigLetterSliceName, lowLetterSliceName ] = strToSmallAndBig(storeName);

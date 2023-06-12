@@ -1,6 +1,6 @@
-import clipboard from "clipboardy";
-import { strToSmallAndBig } from "./supportGen/bigSmallLetter";
-import { yellow } from 'kolorist'
+import clipboard from "npm:clipboardy";
+import { strToSmallAndBig } from "./supportGen/bigSmallLetter.ts";
+import { yellow } from 'npm:kolorist'
 
 function useStateGen(str:string): string {
 

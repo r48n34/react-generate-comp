@@ -1,11 +1,10 @@
-import fs from "fs";
-import path from "path";
-import { cyan } from "kolorist";
-import { rawGen } from "./rawGen";
-import { createFolderIfNotExist, genInsideFile } from "./initHelper";
-import { genStore } from "../supportGen/genStore";
+import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
+import { rawGen } from "./rawGen.ts";
+import { createFolderIfNotExist, genInsideFile } from "./initHelper.ts";
+import { genStore } from "../supportGen/genStore.ts";
+import { join } from "https://deno.land/std@0.191.0/path/mod.ts";
 
-export function rtkGen(isTypescript: boolean = true){
+export async function rtkGen(isTypescript: boolean = true){
     rawGen(isTypescript);
 
     const folderList = ["store"].map( v => createFolderIfNotExist(v) );
@@ -16,11 +15,11 @@ export function rtkGen(isTypescript: boolean = true){
 
         const genData = genStore("users", isTypescript);
 
-        const currentPath = path.join(process.cwd(), "store", isTypescript ? "store.ts" : "store.js");
-        fs.writeFileSync(currentPath, genData);
+        const currentPath = join(Deno.cwd(), "store", isTypescript ? "store.ts" : "store.js");
+        await Deno.writeTextFile(currentPath, genData);
 
         console.log(
-            cyan("Remember: Add the <Provider store={store}> to the main / index apps.")
+            colors.bold.cyan("Remember: Add the <Provider store={store}> to the main / index apps.")
         );
         
     }

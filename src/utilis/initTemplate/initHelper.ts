@@ -1,31 +1,32 @@
-import fs from "fs";
-import path from "path";
-import { yellow, lightRed, green } from "kolorist";
-import { createCompTest } from "../utili";
+import { join } from "https://deno.land/std@0.191.0/path/mod.ts";
+import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
+import { exists } from "https://deno.land/std@0.191.0/fs/mod.ts";
 
-export function createFolderIfNotExist(folderName: string): boolean{
+import { createCompTest } from "../utili.ts";
+
+export async function createFolderIfNotExist(folderName: string): Promise<boolean>{
 
     try {   
-        const folderPath = path.join(process.cwd(), folderName);
+        const folderPath = join(Deno.cwd(), folderName);
     
-        if (!fs.existsSync(folderPath)){
-            fs.mkdirSync(folderPath);
-            console.log(green("Folder"), yellow(folderName),  green("success to create."));
+        if (await exists(folderPath, {isReadable: true, isDirectory: true })){
+            Deno.mkdir(folderPath);
+            console.log(colors.bold.green("Folder"), colors.bold.yellow(folderName),  colors.bold.green("success to create."));
             return true
         }
         else{
-            console.log(lightRed("Folder"), yellow(folderName),  lightRed("already exist."));
+            console.log(colors.bold.red("Folder"), colors.bold.yellow(folderName), colors.bold.red("already exist."));
             return false
         }
     } 
     catch (error: any) {
-        console.log(lightRed(error.message)); 
+        console.log(colors.bold.red(error.message)); 
         return false
     }
 }
 
 // Comp
-export function genInsideFile(
+export async function genInsideFile(
     folderName: string,
     fileName: string,
     method: "Comp" | "Slice" = 'Comp',
@@ -33,6 +34,6 @@ export function genInsideFile(
 ){
     let [ finalfileName, dataText ] = createCompTest(isTypescript, method, fileName);
 
-    let currentPath = path.join(process.cwd(), folderName, finalfileName);
-    fs.writeFileSync(currentPath, dataText);
+    let currentPath = join(Deno.cwd(), folderName, finalfileName);
+    await Deno.writeTextFile(currentPath, dataText);
 }

@@ -1,11 +1,11 @@
-import { lightRed, yellow } from 'kolorist'
+import { lightRed, yellow } from 'npm:kolorist'
 
-import { genRtkSlice } from './supportGen/genRTKSlice';
-import { writeFolder } from './supportGen/writeFolder';
+import { genRtkSlice } from './supportGen/genRTKSlice.ts';
+import { writeFolder } from './supportGen/writeFolder.ts';
 
-import { genComponents } from './supportGen/generateCode';
-import { strToSmallAndBig } from './supportGen/bigSmallLetter';
-import path from 'path';
+import { genComponents } from './supportGen/generateCode.ts';
+import { strToSmallAndBig } from './supportGen/bigSmallLetter.ts';
+import path from 'node:path';
 
 export function createCompTest(isTypescript: boolean, method: "Comp" | "Slice" = 'Comp', compName = ''): [string, string]{
     let dataText:string = "";
@@ -38,7 +38,7 @@ function generateFunctionComp(isTypescript: boolean, method: "Comp" | "Slice" = 
                 "Success to write", 
                 yellow(fileName),
                 "in",
-                yellow(path.join(process.cwd(), fileName))
+                yellow(path.join(Deno.cwd(), fileName))
             );
 
             return;

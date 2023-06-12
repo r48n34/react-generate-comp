@@ -1,8 +1,8 @@
-import prompts from 'prompts';
-import { lightYellow, blue, cyan, yellow, green } from 'kolorist'
-import { rawGen } from "./rawGen";
-import { rtkGen } from './rtkGen';
-import { zustandGen } from './zustandGen';
+import prompts from 'npm:prompts';
+import { lightYellow, blue, cyan, yellow, green } from 'npm:kolorist'
+import { rawGen } from "./rawGen.ts";
+import { rtkGen } from './rtkGen.ts';
+import { zustandGen } from './zustandGen.ts';
 
 interface PromptReturnObj {
     type: "raw" | "rtk"

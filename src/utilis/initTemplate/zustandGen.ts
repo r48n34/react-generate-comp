@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
-import { cyan } from "kolorist";
-import { rawGen } from "./rawGen";
-import { createFolderIfNotExist, genInsideFile } from "./initHelper";
-import { genZustand } from "../supportGen/genZustand";
+import fs from "node:fs";
+import path from "node:path";
+import { cyan } from "npm:kolorist";
+import { rawGen } from "./rawGen.ts";
+import { createFolderIfNotExist, genInsideFile } from "./initHelper.ts";
+import { genZustand } from "../supportGen/genZustand.ts";
 
 export function zustandGen(isTypescript: boolean = true){
     rawGen(isTypescript);

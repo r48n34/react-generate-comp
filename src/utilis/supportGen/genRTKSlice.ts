@@ -1,4 +1,4 @@
-import { strToSmallAndBig } from "./bigSmallLetter";
+import { strToSmallAndBig } from "./bigSmallLetter.ts";
 
 function genRtkSlice ( inputName: string = '', lang: string | null = 'Typescript'){
     const [ bigLetterStr, lowLetterStr ] = strToSmallAndBig(inputName);

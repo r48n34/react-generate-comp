@@ -1,4 +1,4 @@
-import { createFolderIfNotExist, genInsideFile } from "./initHelper";
+import { createFolderIfNotExist, genInsideFile } from "./initHelper.ts";
 
 export function rawGen(isTypescript: boolean = true){
     let folderGenList = ["pages", "components", "utils"];
