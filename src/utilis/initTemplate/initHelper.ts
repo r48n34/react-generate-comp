@@ -10,7 +10,7 @@ export async function createFolderIfNotExist(folderName: string): Promise<boolea
         const folderPath = join(Deno.cwd(), folderName);
     
         if (await exists(folderPath, {isReadable: true, isDirectory: true })){
-            Deno.mkdir(folderPath);
+            await Deno.mkdir(folderPath);
             console.log(colors.bold.green("Folder"), colors.bold.yellow(folderName),  colors.bold.green("success to create."));
             return true
         }

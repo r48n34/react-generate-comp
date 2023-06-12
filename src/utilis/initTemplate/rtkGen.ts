@@ -7,7 +7,10 @@ import { join } from "https://deno.land/std@0.191.0/path/mod.ts";
 export async function rtkGen(isTypescript: boolean = true){
     rawGen(isTypescript);
 
-    const folderList = ["store"].map( v => createFolderIfNotExist(v) );
+    const folderList = [];
+    for(let v of ["store"]){
+        folderList.push(await createFolderIfNotExist(v))
+    }
 
     // store
     if(folderList[0]){

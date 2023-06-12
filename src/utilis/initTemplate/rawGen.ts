@@ -1,10 +1,15 @@
 import { createFolderIfNotExist, genInsideFile } from "./initHelper.ts";
 
-export function rawGen(isTypescript: boolean = true){
+export async function rawGen(isTypescript: boolean = true){
     let folderGenList = ["pages", "components", "utils"];
     isTypescript && (folderGenList.push("interface"))
 
-    const folderList = folderGenList.map( v => createFolderIfNotExist(v) );
+    // const folderList = folderGenList.map( v => createFolderIfNotExist(v) );
+
+    const folderList = [];
+    for(let v of ["store"]){
+        folderList.push(await createFolderIfNotExist(v))
+    }
     
     // pages
     if(folderList[0]){
