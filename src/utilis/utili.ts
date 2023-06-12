@@ -1,11 +1,11 @@
-import { lightRed, yellow } from 'npm:kolorist'
+import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
 
 import { genRtkSlice } from './supportGen/genRTKSlice.ts';
 import { writeFolder } from './supportGen/writeFolder.ts';
 
 import { genComponents } from './supportGen/generateCode.ts';
 import { strToSmallAndBig } from './supportGen/bigSmallLetter.ts';
-import path from 'node:path';
+import { join } from "https://deno.land/std@0.191.0/path/mod.ts";
 
 export function createCompTest(isTypescript: boolean, method: "Comp" | "Slice" = 'Comp', compName = ''): [string, string]{
     let dataText:string = "";
@@ -26,27 +26,27 @@ export function createCompTest(isTypescript: boolean, method: "Comp" | "Slice" =
 }
 
 
-function generateFunctionComp(isTypescript: boolean, method: "Comp" | "Slice" = 'Comp', compName = '') {
+async function generateFunctionComp(isTypescript: boolean, method: "Comp" | "Slice" = 'Comp', compName = '') {
     try {
 
         let [ fileName, dataText ] = createCompTest(isTypescript, method, compName)
-        const success = writeFolder(fileName, dataText);
+        const success = await writeFolder(fileName, dataText);
 
         if (success) {
             
             console.log(
                 "Success to write", 
-                yellow(fileName),
+                colors.bold.yellow(fileName),
                 "in",
-                yellow(path.join(Deno.cwd(), fileName))
+                colors.bold.yellow(join(Deno.cwd(), fileName))
             );
 
             return;
         }
         else{
             console.log(
-                yellow(fileName),
-                lightRed("already exist.")
+                colors.bold.yellow(fileName),
+                colors.bold.red("already exist.")
             );
         }
 

@@ -1,61 +1,51 @@
-import prompts from 'npm:prompts';
-import { lightYellow, blue, cyan, yellow, green } from 'npm:kolorist'
+import { Select, prompt } from "https://deno.land/x/cliffy@v0.25.7/prompt/mod.ts";
+
 import { rawGen } from "./rawGen.ts";
 import { rtkGen } from './rtkGen.ts';
 import { zustandGen } from './zustandGen.ts';
 
-interface PromptReturnObj {
-    type: "raw" | "rtk"
-    lang: "ts" | "js"
-}
+import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
 
 export async function initTemplate(){
 
     try {
         
-        const questions = [
+        const questions = await prompt([
             {
-                type: 'select',
-                name: 'type',
-                message: 'Select a template to generate',
-                choices: [
-                  { title: lightYellow("Raw"), value: "raw" },
-                  { title: cyan("RTK react"), value: "rtk" },
-                  { title: green("zustand"), value: "zustand" },
+                type: Select,
+                name: "type",
+                message: "Select a template to generate",
+                options: [
+                    { name: colors.bold.yellow("Raw"), value: "raw" },
+                    { name: colors.bold.cyan("RTK react"), value: "rtk" },
+                    { name: colors.bold.green("zustand"), value: "zustand" },
                 ],
             },
             {
-                type: 'select',
+                type: Select,
                 name: 'lang',
                 message: 'Select a languages',
-                choices: [
-                  { title: blue("Typescript"), value: "ts" },
-                  { title: yellow("Javascript"), value: "js" },
+                options: [
+                  { name: colors.bold.blue("Typescript"), value: "ts" },
+                  { name: colors.bold.yellow("Javascript"), value: "js" },
                 ],
             }
-        ] as any
-    
-        const resPrompt: PromptReturnObj = await prompts(
-            questions, 
-            { 
-                onCancel: () => { throw new Error("Prompt stopped") }
-            }
-        );
+        ]);
 
-        const isTypescript = resPrompt.lang === "ts";
+        const isTypescript = questions.lang === "ts";
 
-        if(resPrompt.type === "raw"){
+        if(questions.type === "raw"){
             rawGen(isTypescript);
         }
-        else if(resPrompt.type === "rtk"){
+        else if(questions.type === "rtk"){
             rtkGen(isTypescript);
         }
-        else if(resPrompt.type === "zustand"){
+        else if(questions.type === "zustand"){
             zustandGen(isTypescript);
         }
 
         console.log(
-            cyan("\nDone! Enjoy your new project :)")
+            colors.bold.cyan("\nDone! Enjoy your new project :)")
         );
         
     } 

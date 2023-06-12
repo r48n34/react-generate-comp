@@ -6,7 +6,7 @@ import { generateFunctionComp } from './utilis/utili.ts';
 import { activePromptOptions } from './utilis/promptGen/promptSelect.ts';
 import { initTemplate } from './utilis/initTemplate/initTemplate.ts';
 
-const  { flags } = parseFlags(Deno.args, {
+const { flags } = parseFlags(Deno.args, {
     flags: [{
       name: "javascript",
       aliases: ["j", "javascript"],
@@ -40,7 +40,7 @@ const  { flags } = parseFlags(Deno.args, {
 });
 
 if (import.meta.main) {
-    console.log(flags);
+    // console.log(flags);
     main()
 }
 
@@ -59,22 +59,22 @@ async function main(){
     }
 
     if(!!init){
-        initTemplate();
+        await initTemplate();
         return;
     }
 
     if (!!compName) {
-        generateFunctionComp(isTypescript, "Comp", compName.trim().split(' ').join(''));
+        await generateFunctionComp(isTypescript, "Comp", compName.trim().split(' ').join(''));
         return
     }
 
     if(!!sliceName){
-        generateFunctionComp(isTypescript, "Slice", sliceName.trim().split(' ').join(''));
+        await generateFunctionComp(isTypescript, "Slice", sliceName.trim().split(' ').join(''));
         return
     }
 
     if(!!useStateName){
-        useStateGen(useStateName);
+        await useStateGen(useStateName);
         return
     }
 

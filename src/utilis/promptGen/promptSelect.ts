@@ -1,67 +1,58 @@
-import prompts from 'npm:prompts';
-import path from "node:path"
-import { blue, cyan, lightGreen, yellow } from 'npm:kolorist'
+import { colors } from "https://deno.land/x/cliffy@v0.25.7/ansi/colors.ts";
 import { generateFunctionComp } from '../utili.ts';
-
-interface PromptReturnObj {
-    fileName: string
-    type: "Comp" | "Slice"
-    lang: string
-}
+import { Input, Select, prompt } from "https://deno.land/x/cliffy@v0.25.7/prompt/mod.ts";
 
 export async function activePromptOptions(){
 
-    const questions = [
-        {
-            type: 'select',
-            name: 'type',
-            message: 'Select a type to generate',
-            choices: [
-              { title: cyan("Components"), value: "Comp" },
-              { title: lightGreen("RTK Slice"), value: "Slice" },
-            ],
-        },
-        {
-          type: 'text',
-          name: 'fileName',
-          initial: "users",
-          message: 'What is your file name?',
-          validate: (v:string | null) => {
-
-            if(!v || v !== path.basename(v)){
-                return "Missing file name or invalid file name"
-            }
-
-            if(v.endsWith(".")){
-                return "Dot(.) can not be named at last"
-            }
-
-            return true
-          }
-        },
-        {
-          type: 'select',
-          name: 'lang',
-          message: 'Select a languages',
-          choices: [
-            { title: blue("Typescript"), value: "ts" },
-            { title: yellow("Javascript"), value: "js" },
-          ],
-        }
-    ] as any;
-
     try {
-        const res: PromptReturnObj = await prompts(
-            questions, 
-            { 
-                onCancel: () => { throw new Error("Prompt stopped") }
-            }
-        );
-        
-        generateFunctionComp(
-            res.lang === "ts",
-            res.type,
-            res.fileName.trim().split(' ').join('')
+
+        const questions = await prompt([
+            {
+                name: "type",
+                message: "Select a type to generate",
+                type: Select,
+                options: [
+                    { name: colors.bold.cyan("Components"), value: "Comp" },
+                    { name: colors.bold.green("RTK Slice"), value: "Slice" }
+                ],
+            },
+            {
+                type: Input,
+                name: 'fileName',
+                default: "users",
+                message: 'What is your file name?',
+                minLength: 1
+                
+                // validate: (v:string | null) => {
+    
+                //   if(!v || v !== path.basename(v)){
+                //       return "Missing file name or invalid file name"
+                //   }
+    
+                //   if(v.endsWith(".")){
+                //       return "Dot(.) can not be named at last"
+                //   }
+    
+                //   return true
+                // }
+            },
+            {
+                name: "languages",
+                message: "Select a languages",
+                type: Select,
+                options: [
+                    { name: colors.bold.blue("Typescript"), value: "ts" },
+                    { name: colors.bold.yellow("Javascript"), value: "js" },
+                ],
+            },
+        ]);
+
+        // console.log(questions);
+
+        await generateFunctionComp(
+            questions.languages === "ts",
+            questions.type as "Comp" | "Slice",
+            questions.fileName!.trim().split(' ').join('')
         );
     } 
     catch (error: any) {
