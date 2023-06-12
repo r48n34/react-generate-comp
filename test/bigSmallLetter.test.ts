@@ -1,15 +1,12 @@
-import { strToSmallAndBig } from "../src/utilis/supportGen/bigSmallLetter"
+import { assertEquals } from "https://deno.land/std@0.191.0/testing/asserts.ts";
+import { strToSmallAndBig } from "../src/utilis/supportGen/bigSmallLetter.ts"
 
-describe('test strToSmallAndBig functions', () => {
+Deno.test("strToSmallAndBig function works in normal", () => {
+    const testString = "helloComp";
+    assertEquals(strToSmallAndBig(testString), ["HelloComp", "helloComp"])
+});
 
-    test('strToSmallAndBig function works in normal', () => {
-        const testString = "helloComp";
-        expect(strToSmallAndBig(testString)).toEqual(["HelloComp", "helloComp"]);
-    });
-
-    test('strToSmallAndBig function works in blank string', () => {
-        const testString = "";
-        expect(strToSmallAndBig(testString)).toEqual(["Values", "values"]);
-    });
-
+Deno.test("strToSmallAndBig function works in blank string", () => {
+    const testString = "";
+    assertEquals(strToSmallAndBig(testString), ["Values", "values"])
 });

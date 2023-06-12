@@ -21,20 +21,19 @@ export async function activePromptOptions(){
                 name: 'fileName',
                 default: "users",
                 message: 'What is your file name?',
-                minLength: 1
-                
-                // validate: (v:string | null) => {
+                minLength: 1,
+                maxLength: 254,
+                validate: (v:string | null) => {
+                  if(!v){
+                      return "Missing file name or invalid file name"
+                  }
     
-                //   if(!v || v !== path.basename(v)){
-                //       return "Missing file name or invalid file name"
-                //   }
+                  if(v.endsWith(".")){
+                      return "Dot(.) can not be named at last"
+                  }
     
-                //   if(v.endsWith(".")){
-                //       return "Dot(.) can not be named at last"
-                //   }
-    
-                //   return true
-                // }
+                  return true
+                }
             },
             {
                 name: "languages",

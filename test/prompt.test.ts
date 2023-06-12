@@ -1,6 +1,6 @@
-import fs from 'fs'
-import { rimrafSync } from 'rimraf'
-import { initTemplate } from "../src/utilis/initTemplate/initTemplate"
+import fs from 'node:fs'
+import { rimrafSync } from 'npm:rimraf'
+import { initTemplate } from "../src/utilis/initTemplate/initTemplate.ts"
 
 import prompts from 'prompts'
 jest.mock('prompts');
