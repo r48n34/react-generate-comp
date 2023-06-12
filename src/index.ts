@@ -108,3 +108,4 @@ async function main() {
 }
 
 // deno install -n rgc -A -f .\index.ts
+// deno compile -A .\index.ts
