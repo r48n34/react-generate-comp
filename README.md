@@ -24,7 +24,7 @@ Generate RTK Slice
 rgc -s <Slice name> 
 
 <javascript Flag>  
--t, --javascript For enable javascript jsx generate 
+-j, --javascript For enable javascript jsx generate 
 
 <Components name>  
 -c, --generateComp for Generate comp name
