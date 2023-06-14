@@ -2,13 +2,6 @@
 
 Generate React components in current execute directory by typing with CLI.
 
-<p align="left">
-
-<a href="https://www.npmjs.com/package/react-generate-comp"> <img src="https://img.shields.io/npm/v/react-generate-comp" /> </a>
-<a href="https://github.com/r48n34/react-generate-comp"><img src="https://img.shields.io/github/actions/workflow/status/r48n34/react-generate-comp/test.yml" /></a>
-
-</p>
-
 ### Features
 1. Create a basic components with ts / js config.  
 2. Follow the practice of react official ts / js docs.
