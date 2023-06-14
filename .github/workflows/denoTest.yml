@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - 'deno'
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-22.04, macos-12, windows-2022 ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deno test
+        run: | 
+          deno test --allow-all --coverage test/
+

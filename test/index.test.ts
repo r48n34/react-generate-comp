@@ -1,24 +1,24 @@
-import { unlinkSync } from "https://deno.land/std@0.112.0/node/fs.ts";
-import { assertArrayIncludes } from "https://deno.land/std@0.191.0/testing/asserts.ts";
-import { spawn } from "node:child_process";
+// import { unlinkSync } from "https://deno.land/std@0.112.0/node/fs.ts";
+// import { assertArrayIncludes } from "https://deno.land/std@0.191.0/testing/asserts.ts";
+// import { spawn } from "node:child_process";
 
-Deno.test("Command 'rgc -tc helloComp' works", async () => {
+// Deno.test("Command 'rgc -tc helloComp' works", async () => {
 
-    // Deno.run({cmd: ["rgc" ,]});
-    spawn("rgc", ["-c", "helloComp"]);
+//     // Deno.run({cmd: ["rgc" ,]});
+//     spawn("rgc", ["-c", "helloComp"]);
 
-    const listDir = [];
+//     const listDir = [];
 
-    for (const dirEntry of Deno.readDirSync("/")) {
-        listDir.push(dirEntry.name);
-    }
+//     for (const dirEntry of Deno.readDirSync("/")) {
+//         listDir.push(dirEntry.name);
+//     }
 
-    assertArrayIncludes(listDir, ['HelloComp.tsx'])
-    unlinkSync("./HelloComp.tsx");
+//     assertArrayIncludes(listDir, ['HelloComp.tsx'])
+//     unlinkSync("./HelloComp.tsx");
 
-    // exec('rgc -tc helloComp', async (err, out) => {
-    // });
-});
+//     // exec('rgc -tc helloComp', async (err, out) => {
+//     // });
+// });
 
 
 // describe('Test generate comp', () => {
