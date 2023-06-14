@@ -14,6 +14,7 @@ Generate React components in current execute directory by typing with CLI.
 2. Follow the practice of react official ts / js docs.
 3. Generate Components / Slice / useState in one line.
 4. No configs, easy to use with prompts.
+5. Default typescript
 
 ### Setup / Install:
 ``` bash
@@ -23,14 +24,14 @@ deno install -n rgc -A -f src/index.ts
 ### Usage:
 ``` bash
 Generate Components
-rgc <typescript Flag> -c <Components name>  
-rgc <typescript Flag> -c <Components name> 
+rgc -c <Components name>  
+rgc -c <Components name> 
 
 Generate RTK Slice
-rgc <typescript Flag> -s <Slice name> 
+rgc -s <Slice name> 
 
-<typescript Flag>  
--t, --typescript For enable typescript tsx generate 
+<javascript Flag>  
+-t, --javascript For enable javascript jsx generate 
 
 <Components name>  
 -c, --generateComp for Generate comp name
@@ -43,18 +44,19 @@ rgc <typescript Flag> -s <Slice name>
 
 Usage:
 Create a tsx components named "HelloComp"
-rgc -t -c "helloComp"
-rgc -tc "helloComp"
+rgc -c "helloComp"
+
 
 Create a jsx components named "Yolocomp"
-rgc -c "yolocomp"
+rgc -j -c "yolocomp"
+rgc -jc "yolocomp"
 
 Create a tsx RTK Slice named "TodoSlice"
-rgc -t -s "todo"
-rgc -ts "todo"
+rgc -s "todo"
 
 Create a jsx RTK Slice named "NotTodoSlice"
-rgc -s "notTodo"
+rgc -j -s "notTodo"
+rgc -js "notTodo"
 
 Create a useState named with "[ number, setNumber ]"
 rgc -u number
@@ -64,16 +66,16 @@ rgc --init
 ```
 
 ## Generated template
-```rgc -t -c "testComp"``` or ```rgc -tc "testComp"```  
+```rgc -c "testComp"```
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TestComp.tsx)
 
-```rgc -c "hiComp"```  
+```rgc -jc "hiComp"``` or ```rgc -j -c "hiComp"``` 
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/HiComp.jsx)
 
-```rgc -t -s "todo"``` or ```rgc -ts "todo"```  
+```rgc -s "todo"```
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.tsx)
 
-```rgc -s "todo"```  
+```rgc -js "todo"``` or ```rgc -j -s "todo"```
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx)
 
 ## Road map  
