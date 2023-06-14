@@ -1,9 +1,9 @@
 {
     "tasks": {
-      "start": "deno run src/index.ts",
-      "install": "deno install -n rgc -A -f src/index.ts",
+      "start": "deno run --unstable src/index.ts",
+      "install": "deno install --unstable -n rgc -A -f src/index.ts",
       "compile": "deno compile -A src/index.ts",
       "remove": "deno uninstall rgc",
-      "test": "deno test --allow-run test/"
+      "test": "deno test --unstable --allow-all test/"
     }
 }
