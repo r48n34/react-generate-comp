@@ -13,7 +13,9 @@ jobs:
         os: [ ubuntu-22.04, macos-12, windows-2022 ]
     steps:
       - uses: actions/checkout@v3
-      - name: Deno test
-        run: | 
+      - uses: denoland/setup-deno@v1.1.1
+        with:
+          deno-version: v2.x 
+      - run: | 
           deno test --allow-all --coverage test/
 
