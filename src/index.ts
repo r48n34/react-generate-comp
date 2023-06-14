@@ -4,10 +4,10 @@ import {
   ValidationError,
 } from "https://deno.land/x/cliffy@v0.25.7/flags/mod.ts";
 
-import { useStateGen } from "./utilis/useStateGenUtilis.ts";
-import { generateFunctionComp } from "./utilis/utili.ts";
-import { activePromptOptions } from "./utilis/promptGen/promptSelect.ts";
-import { initTemplate } from "./utilis/initTemplate/initTemplate.ts";
+// import { useStateGen } from "./utilis/useStateGenUtilis.ts";
+// import { generateFunctionComp } from "./utilis/utili.ts";
+// import { activePromptOptions } from "./utilis/promptGen/promptSelect.ts";
+// import { initTemplate } from "./utilis/initTemplate/initTemplate.ts";
 
 if (import.meta.main) {
   main();
@@ -63,13 +63,16 @@ async function main() {
         }
 
         if (!!init) {
-            await initTemplate();
+            const initTemplate = await import("./utilis/initTemplate/initTemplate.ts");
+            await initTemplate.initTemplate();
             return;
         }
 
         if (!!compName && compName.length >= 1) {
+            const generateFunctionComp = await import("./utilis/utili.ts");
+
             for(let v of compName){
-                await generateFunctionComp(
+                await generateFunctionComp.generateFunctionComp(
                     isTypescript,
                     "Comp",
                     v.trim().split(" ").join(""),
@@ -79,8 +82,10 @@ async function main() {
         }
 
         if (!!sliceName) {
+            const generateFunctionComp = await import("./utilis/utili.ts");
+
             for(let v of sliceName){
-                await generateFunctionComp(
+                await generateFunctionComp.generateFunctionComp(
                     isTypescript,
                     "Slice",
                     v.trim().split(" ").join(""),
@@ -90,12 +95,17 @@ async function main() {
         }
 
         if (!!useStateName) {
-            await useStateGen(useStateName);
+            const useStateGen = await import("./utilis/useStateGenUtilis.ts");
+
+            await useStateGen.useStateGen(useStateName);
             return;
         }
 
         console.log(`react-generate-comp`);
-        await activePromptOptions();
+
+        const activePromptOptions = await import("./utilis/promptGen/promptSelect.ts");
+
+        await activePromptOptions.activePromptOptions();
     } 
     catch (error) {
         if (error instanceof ValidationError) {

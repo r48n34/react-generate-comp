@@ -1,0 +1,8 @@
+{
+    "tasks": {
+      "start": "deno run src/index.ts",
+      "install": "deno install -n rgc -A -f src/index.ts",
+      "compile": "deno compile -A src/index.ts",
+      "remove": "deno uninstall rgc"
+    }
+}

@@ -1,4 +1,4 @@
-# react-generate-comp
+# react-generate-comp-deno
 
 Generate React components in current execute directory by typing with CLI.
 
@@ -17,7 +17,7 @@ Generate React components in current execute directory by typing with CLI.
 
 ### Setup / Install:
 ``` bash
-npm i -g react-generate-comp
+deno install -n rgc -A -f src/index.ts
 ```
 
 ### Usage:
