@@ -17,5 +17,5 @@ jobs:
         with:
           deno-version: v1.x 
       - run: | 
-          deno test --allow-all test/
+          deno test --allow-run --allow-all test/
 
