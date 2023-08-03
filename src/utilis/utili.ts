@@ -7,11 +7,16 @@ import { genComponents } from './supportGen/generateCode';
 import { strToSmallAndBig } from './supportGen/bigSmallLetter';
 import path from 'path';
 
-export function createCompTest(isTypescript: boolean, method: "Comp" | "Slice" = 'Comp', compName = ''): [string, string]{
+export function createCompTest(
+    isTypescript: boolean,
+    method: "Comp" | "Slice" = 'Comp',
+    compName = '',
+    isNative = false
+): [string, string]{
     let dataText:string = "";
 
     if(method === "Comp"){
-        dataText = genComponents( compName, isTypescript ? 'Typescript' : 'Javascript' );
+        dataText = genComponents( compName, isTypescript ? 'Typescript' : 'Javascript', isNative );
     }
     else if(method === "Slice"){
         dataText = genRtkSlice( compName, isTypescript ? 'Typescript' : 'Javascript' );
@@ -26,10 +31,15 @@ export function createCompTest(isTypescript: boolean, method: "Comp" | "Slice" =
 }
 
 
-function generateFunctionComp(isTypescript: boolean, method: "Comp" | "Slice" = 'Comp', compName = '') {
+function generateFunctionComp(
+    isTypescript: boolean,
+    method: "Comp" | "Slice" = 'Comp',
+    compName = '',
+    isNative = false
+) {
     try {
 
-        let [ fileName, dataText ] = createCompTest(isTypescript, method, compName)
+        let [ fileName, dataText ] = createCompTest(isTypescript, method, compName, isNative)
         const success = writeFolder(fileName, dataText);
 
         if (success) {

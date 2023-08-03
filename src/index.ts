@@ -13,6 +13,12 @@ const parser = yargs(process.argv.slice(2)).options({
         default: false,
         alias: 'typescript',
     },
+    n: {
+        type: 'boolean',
+        describe: 'Enable react native flag',
+        default: false,
+        alias: 'native',
+    },
     c: {
         type: 'string',
         describe: 'Generate comp name',
@@ -40,6 +46,8 @@ const parser = yargs(process.argv.slice(2)).options({
     const argv = await parser.argv;
 
     const isTypescript = argv.t;
+    const isNative = argv.n;
+
     const compName = argv.c;
     const sliceName = argv.s;
     const useStateName = argv.u;
@@ -55,12 +63,12 @@ const parser = yargs(process.argv.slice(2)).options({
     }
 
     if (!!compName) {
-        generateFunctionComp(isTypescript, "Comp", compName.trim().split(' ').join(''));
+        generateFunctionComp(isTypescript, "Comp", compName.trim().split(' ').join(''), isNative);
         return
     }
 
     if(!!sliceName){
-        generateFunctionComp(isTypescript, "Slice", sliceName.trim().split(' ').join(''));
+        generateFunctionComp(isTypescript, "Slice", sliceName.trim().split(' ').join(''), isNative);
         return
     }
 

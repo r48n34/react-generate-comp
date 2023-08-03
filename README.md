@@ -32,6 +32,9 @@ rgc <typescript Flag> -s <Slice name>
 <typescript Flag>  
 -t, --typescript For enable typescript tsx generate 
 
+<react native Flag>  
+-n, --native For generate react native components
+
 <Components name>  
 -c, --generateComp for Generate comp name
 
@@ -42,16 +45,20 @@ rgc <typescript Flag> -s <Slice name>
 -u, --generateUseState  Generate useState line code to your clipboard
 
 Usage:
-Create a tsx components named "HelloComp"
+Create a tsx components named "HelloComp" for `React`
 rgc -t -c "helloComp"
 rgc -tc "helloComp"
 
-Create a jsx components named "Yolocomp"
+Create a jsx components named "Yolocomp" for `React`
 rgc -c "yolocomp"
 
-Create a tsx RTK Slice named "TodoSlice"
-rgc -t -s "todo"
-rgc -ts "todo"
+Create a tsx components named "HelloComp" for `React native`
+rgc -t -n -c "helloComp"
+rgc -tnc "helloComp"
+
+Create a jsx components named "Yolocomp" for `React native`
+rgc -n -c "yolocomp"
+rgc -nc "yolocomp"
 
 Create a jsx RTK Slice named "NotTodoSlice"
 rgc -s "notTodo"
@@ -82,6 +89,9 @@ rgc --init
 - [ ] Init more template
 
 ## Dev logs
+
+### - 1.5.0
+1. Add react native component generate `-n` flag
 
 ### - 1.4.5
 1. Add zustand template to `rgc --init`

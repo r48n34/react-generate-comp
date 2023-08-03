@@ -12,6 +12,16 @@ describe('Test generate comp', () => {
             done();
         });
     });
+
+    test("Command 'rgc -tnc helloNativeComp' works", (done:any) => {
+        exec('rgc -tnc helloNativeComp', (err, out) => {
+            const listDir = fs.readdirSync("./");
+            expect(listDir).toContain('HelloNativeComp.tsx');
+    
+            fs.unlinkSync("./HelloNativeComp.tsx");
+            done();
+        });
+    });
     
     test("Command 'rgc -t -c yoloComp' works", (done:any) => {
         exec('rgc -tc yoloComp', (err, out) => {
@@ -29,6 +39,16 @@ describe('Test generate comp', () => {
             expect(listDir).toContain('OrangeComp.jsx');
     
             fs.unlinkSync("./OrangeComp.jsx");
+            done();
+        });
+    });
+
+    test("Command 'rgc -nc orangeNativeComp' works", (done:any) => {
+        exec('rgc -nc orangeNativeComp', (err, out) => {
+            const listDir = fs.readdirSync("./");
+            expect(listDir).toContain('OrangeNativeComp.jsx');
+    
+            fs.unlinkSync("./OrangeNativeComp.jsx");
             done();
         });
     });
