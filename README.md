@@ -1,8 +1,10 @@
 # react-generate-comp
 
-Generate React components in current execute directory by typing with CLI.
+Generate React components in current execute directory by typing with CLI. 
 
-> We are updating to V2 which supportinng `Typescript` in default. If you are using V1, please be care that you do not have to use `Typescript -t` Flag. Innstead of Javascript users need to apply the `Javascript -j` flag.
+Works on Windows / MacOS / Linux.
+
+> We are updating to V2 which supporting `Typescript` in default. If you are upgraded from V1, please be care that you do not have to use `Typescript -t` flag from now on. Instead of Javascript users, you have to apply the `Javascript -j` flag.
 
 <p align="left">
 
@@ -11,18 +13,18 @@ Generate React components in current execute directory by typing with CLI.
 
 </p>
 
-### Features
+### 🔧 Features
 1. Create a basic components with ts / js config.  
 2. Follow the practice of react official ts / js docs.
 3. Generate Components / Slice / useState in one line.
 4. No configs, easy to use with prompts.
 
-### Setup / Install:
+### 💻 Setup / Instal
 ``` bash
 npm i -g react-generate-comp
 ```
 
-### Usage:
+### 🗺️ Usage
 ``` bash
 Generate Component
 rgc -c <Components names>  
@@ -64,7 +66,7 @@ rgc -i
 
 ```
 
-## Generated template
+## 🖼️ Generated Template
 ```rgc -t -c "testComp"```   
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TestComp.tsx)
 
@@ -77,12 +79,12 @@ rgc -i
 ```rgc -s "todo"```  
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx)
 
-## Road map  
+## 🗺️ Road Map  
 - ✅ First class typescript support  
 - ✅ Generate other related stuff
 - ⬜️ Init more template
 
-## Dev logs
+## 📝 Dev Logs
 
 ### - 2.0.0
 1. Default generating `.tsx`, `.ts` for all related files.
@@ -119,3 +121,6 @@ rgc -i
 
 ### - 1.2.x  
 1. Added `rgc -u <setState_name>` generate function.  
+
+# 🚗 License
+MIT

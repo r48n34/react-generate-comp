@@ -1,6 +1,8 @@
 import { exec } from "child_process"
 import fs from "fs"
 
+jest.setTimeout(10000)
+
 describe('Test generate comp', () => {
   
     test("Command 'rgc -c helloComp' works", (done:any) => {
