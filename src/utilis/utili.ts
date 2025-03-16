@@ -1,4 +1,4 @@
-import { lightRed, yellow } from 'kolorist'
+import { blue, lightRed, yellow } from 'kolorist'
 
 import { genRtkSlice } from './supportGen/genRTKSlice';
 import { writeFolder } from './supportGen/writeFolder';
@@ -30,7 +30,6 @@ export function createCompTest(
     return [ fileName, dataText ]
 }
 
-
 function generateFunctionComp(
     isTypescript: boolean,
     method: "Comp" | "Slice" = 'Comp',
@@ -39,7 +38,8 @@ function generateFunctionComp(
 ) {
     try {
 
-        let [ fileName, dataText ] = createCompTest(isTypescript, method, compName, isNative)
+        let [ fileName, dataText ] = createCompTest(isTypescript, method, compName, isNative);
+        console.log(blue(`Generating ${method} ${fileName}`));
         const success = writeFolder(fileName, dataText);
 
         if (success) {

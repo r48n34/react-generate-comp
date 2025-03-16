@@ -1,82 +1,62 @@
 #!/usr/bin/env node
 
-import yargs from 'yargs/yargs';
+import { Command } from 'commander';
+
 import { useStateGen } from './utilis/useStateGenUtilis';
 import { generateFunctionComp } from './utilis/utili';
 import { activePromptOptions } from './utilis/promptGen/promptSelect';
 import { initTemplate } from './utilis/initTemplate/initTemplate';
 
-const parser = yargs(process.argv.slice(2)).options({
-    t: {
-        type: 'boolean',
-        describe: 'Enable typescript mode',
-        default: false,
-        alias: 'typescript',
-    },
-    n: {
-        type: 'boolean',
-        describe: 'Enable react native flag',
-        default: false,
-        alias: 'native',
-    },
-    c: {
-        type: 'string',
-        describe: 'Generate comp name',
-        alias: 'generateComp',
-    },
-    s: {
-        type: 'string',
-        describe: 'Generate RTK slice',
-        alias: 'generateRTKSlice',
-    },
-    u: {
-        type: 'string',
-        describe: 'Generate useState line to your clipboard',
-        alias: 'generateUseState',
-    },
-    i: {
-        type: 'boolean',
-        describe: 'Init a new project require file and folder',
-        alias: 'init',
-    },
-});
+const program = new Command();
 
-(async () => {
-    console.log(`react-generate-comp`);
-    const argv = await parser.argv;
+program
+    .name('react-generate-comp')
+    .description('CLI to create react related items with best practices.')
+    .version('2.0.0');
 
-    const isTypescript = argv.t;
-    const isNative = argv.n;
+program
+    .option('-j, --javascript', 'Output with javascript format')
+    .option('-n, --native', 'Output with React Native format')
+    .option('-c, --components [name...]', 'Generate components')
+    .option('-u, --useState <name>', 'Generate useState')
+    .option('-i, --init', 'Init pages or folders for react projects');
 
-    const compName = argv.c;
-    const sliceName = argv.s;
-    const useStateName = argv.u;
-    const init = argv.i;
-    
-    if(!!compName && !!sliceName){
+(() => {
+
+    program.parse(process.argv)
+    const options = program.opts();
+
+    const isJavascript = options.hasOwnProperty('javascript') && options.javascript
+    const isNative = options.native;
+
+    const compNameList = options.components;
+  
+    const useStateName = options.useState;
+    const init = options.initTemplate;
+
+    if (!!compNameList && !!useStateName) {
         return;
     }
 
-    if(!!init){
+    if (!!init) {
         initTemplate();
         return;
     }
 
-    if (!!compName) {
-        generateFunctionComp(isTypescript, "Comp", compName.trim().split(' ').join(''), isNative);
+    if (!!compNameList && Array.isArray(compNameList)) {
+        for(let compName of compNameList){
+            const newCompName = compName.trim();
+            generateFunctionComp(!isJavascript, "Comp", newCompName, isNative);
+        }
+
         return
     }
 
-    if(!!sliceName){
-        generateFunctionComp(isTypescript, "Slice", sliceName.trim().split(' ').join(''), isNative);
-        return
-    }
-
-    if(!!useStateName){
+    if (!!useStateName) {
         useStateGen(useStateName);
         return
     }
 
-    await activePromptOptions()
+    activePromptOptions()
 
 })();

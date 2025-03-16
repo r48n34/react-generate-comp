@@ -2,6 +2,8 @@
 
 Generate React components in current execute directory by typing with CLI.
 
+> We are updating to V2 which supportinng `Typescript` in default. If you are using V1, please be care that you do not have to use `Typescript -t` Flag. Innstead of Javascript users need to apply the `Javascript -j` flag.
+
 <p align="left">
 
 <a href="https://www.npmjs.com/package/react-generate-comp"> <img src="https://img.shields.io/npm/v/react-generate-comp" /> </a>
@@ -22,73 +24,71 @@ npm i -g react-generate-comp
 
 ### Usage:
 ``` bash
-Generate Components
-rgc <typescript Flag> -c <Components name>  
-rgc <typescript Flag> -c <Components name> 
+Generate Component
+rgc -c <Components names>  
+rgc <javascript Flag> -c <Components name> 
 
-Generate RTK Slice
-rgc <typescript Flag> -s <Slice name> 
+<Javascript Flag>  
+-j, --javascript For enable javascript jsx generate 
 
-<typescript Flag>  
--t, --typescript For enable typescript tsx generate 
-
-<react native Flag>  
+<React native Flag>  
 -n, --native For generate react native components
 
 <Components name>  
--c, --generateComp for Generate comp name
-
-<Slice name>  
--s, --generateRTKSlice  Generate RTK slice
+-c, --components for Generate comp name
 
 <useState name>  
--u, --generateUseState  Generate useState line code to your clipboard
+-u, --useState  Generate useState line code to your clipboard
 
 Usage:
-Create a tsx components named "HelloComp" for `React`
-rgc -t -c "helloComp"
-rgc -tc "helloComp"
+Create a TSX components named "HelloComp" for `React`
+rgc -c helloComp
 
-Create a jsx components named "Yolocomp" for `React`
-rgc -c "yolocomp"
+Create two TSX components named "HelloComp" and "ByeComp" for `React`
+rgc -c helloComp ByeComp
 
-Create a tsx components named "HelloComp" for `React native`
-rgc -t -n -c "helloComp"
-rgc -tnc "helloComp"
+Create a JSX components named "Yolocomp" for `React`
+rgc -j -c yolocomp
+
+Create a TSX components named "HelloComp" for `React native`
+rgc -n -c helloComp
 
 Create a jsx components named "Yolocomp" for `React native`
-rgc -n -c "yolocomp"
-rgc -nc "yolocomp"
-
-Create a jsx RTK Slice named "NotTodoSlice"
-rgc -s "notTodo"
+rgc -j -n -c yolocomp
 
 Create a useState named with "[ number, setNumber ]"
 rgc -u number
 
 Create a set of folder and file for init the new Vite / CRP project
-rgc --init
+rgc -i
+
 ```
 
 ## Generated template
-```rgc -t -c "testComp"``` or ```rgc -tc "testComp"```  
+```rgc -t -c "testComp"```   
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TestComp.tsx)
 
 ```rgc -c "hiComp"```  
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/HiComp.jsx)
 
-```rgc -t -s "todo"``` or ```rgc -ts "todo"```  
+```rgc -t -s "todo"```  
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.tsx)
 
 ```rgc -s "todo"```  
 [Template](https://github.com/r48n34/react-generate-comp/tree/main/template/TodoSlice.jsx)
 
 ## Road map  
-- [x] First class typescript support  
-- [x] Generate other related stuff
-- [ ] Init more template
+- ✅ First class typescript support  
+- ✅ Generate other related stuff
+- ⬜️ Init more template
 
 ## Dev logs
+
+### - 2.0.0
+1. Default generating `.tsx`, `.ts` for all related files.
+2. Remove `RTK Slice` generation.
+3. Allow to create more than one componnents with same command.
+4. Better UX for reminder.
 
 ### - 1.5.0
 1. Add react native component generate `-n` flag
@@ -97,7 +97,7 @@ rgc --init
 1. Add zustand template to `rgc --init`
 
 ### - 1.4.3
-1. Cli '-c', '-s' will not overwrite file that already exist in the current path.
+1. Cli `-c`, `-s` will not overwrite file that already exist in the current path.
 
 ### - 1.4.1 / 1.4.2
 1. `init project javascript` will not generate interface folder from now.
