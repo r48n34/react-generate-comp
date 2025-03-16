@@ -14,5 +14,9 @@ jobs:
       run: yarn
     - name: Install latest rgc
       run: npm i -g .
-    - name: Run tests
-      run: yarn test
+    - name: Run tests prompt.test.ts
+      run: npx jest prompt.test.ts
+    - name: Run tests bigSmallLetter.test.ts
+      run: npx jest bigSmallLetter.test.ts
+    - name: Run tests useStateGen.test
+      run: npx jest useStateGen.test
