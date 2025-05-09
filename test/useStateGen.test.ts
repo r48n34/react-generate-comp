@@ -1,4 +1,4 @@
-import { useStateGen } from "../src/utilis/useStateGenUtilis"
+import { useStateGen } from "../src/utilis/useStateGen"
 
 describe('test useStateGen functions', () => {
 

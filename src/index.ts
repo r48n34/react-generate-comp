@@ -2,11 +2,11 @@
 
 import { Command } from 'commander';
 
-import { useEffectGenUtils } from './utilis/useStateGenUtilis';
+import { useEffectGen } from './utilis/useEffectGen';
 import { generateFunctionComp } from './utilis/utili';
 import { activePromptOptions } from './utilis/promptGen/promptSelect';
 import { initTemplate } from './utilis/initTemplate/initTemplate';
-import { useStateGen } from './utilis/useEffectGenUtils';
+import { useStateGen } from './utilis/useStateGen';
 
 const program = new Command();
 
@@ -61,7 +61,7 @@ program
     }
 
     if (!!useEffect) {
-        useEffectGenUtils();
+        useEffectGen();
         return
     }
 

@@ -1,7 +1,7 @@
 import clipboard from "clipboardy";
 import { yellow } from 'kolorist'
 
-function useEffectGenUtils(): string {
+function useEffectGen(): string {
 
     try {   
         const genCode = `useEffect(() => {\n\n},[])`
@@ -22,4 +22,4 @@ function useEffectGenUtils(): string {
 
 }
 
-export { useEffectGenUtils }
+export { useEffectGen }
