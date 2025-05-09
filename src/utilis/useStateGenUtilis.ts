@@ -1,24 +1,15 @@
 import clipboard from "clipboardy";
-import { strToSmallAndBig } from "./supportGen/bigSmallLetter";
 import { yellow } from 'kolorist'
 
-function useStateGen(str:string): string {
+function useEffectGenUtils(): string {
 
-    try {
-        
-        if(!str || str === ""){
-           return "" 
-        }
-
-        str = str.trim();
-    
-        const bigSmall = strToSmallAndBig(str)
-        const genCode = `const [ ${bigSmall[1]}, set${bigSmall[0]} ] = useState<any>(0);`
+    try {   
+        const genCode = `useEffect(() => {\n\n},[])`
     
         clipboard.writeSync(genCode);
         console.log(
             "Success to copy", 
-            yellow(genCode),
+            yellow("useEffect"),
             "to your clipboard."
         );
 
@@ -31,4 +22,4 @@ function useStateGen(str:string): string {
 
 }
 
-export { useStateGen }
+export { useEffectGenUtils }

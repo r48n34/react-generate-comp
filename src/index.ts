@@ -2,10 +2,11 @@
 
 import { Command } from 'commander';
 
-import { useStateGen } from './utilis/useStateGenUtilis';
+import { useEffectGenUtils } from './utilis/useStateGenUtilis';
 import { generateFunctionComp } from './utilis/utili';
 import { activePromptOptions } from './utilis/promptGen/promptSelect';
 import { initTemplate } from './utilis/initTemplate/initTemplate';
+import { useStateGen } from './utilis/useEffectGenUtils';
 
 const program = new Command();
 
@@ -19,6 +20,7 @@ program
     .option('-n, --native', 'Output with React Native format')
     .option('-c, --components [name...]', 'Generate components')
     .option('-u, --useState <name>', 'Generate useState')
+    .option('-e, --useEffect', 'Generate useEffect')
     .option('-i, --init', 'Init pages or folders for react projects');
 
 (() => {
@@ -32,6 +34,7 @@ program
     const compNameList = options.components;
   
     const useStateName = options.useState;
+    const useEffect = options.useEffect;
     const init = options.initTemplate;
 
     if (!!compNameList && !!useStateName) {
@@ -54,6 +57,11 @@ program
 
     if (!!useStateName) {
         useStateGen(useStateName);
+        return
+    }
+
+    if (!!useEffect) {
+        useEffectGenUtils();
         return
     }
 

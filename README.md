@@ -25,7 +25,7 @@ Recommended: Install with `-g`
 npm i -g react-generate-comp
 ```
 
-Alternative: Use with `npm exec`
+Alternative: Use with `npm exec` directly
 ```bash
 # With CLI
 npm exec react-generate-comp
@@ -52,6 +52,9 @@ rgc <javascript Flag> -c <Components name>
 <useState name>  
 -u, --useState  Generate useState line code to your clipboard
 
+<useEffect>  
+-e, --useEffect  Generate useEffect code to your clipboard
+
 Usage:
 Create a TSX components named "HelloComp" for `React`
 rgc -c helloComp
@@ -74,6 +77,9 @@ rgc -u number
 Create a set of folder and file for init the new Vite / CRP project
 rgc -i
 
+Create useEffect code
+rgc -e
+
 ```
 
 ## 🖼️ Generated Template
@@ -95,6 +101,9 @@ rgc -i
 - ⬜️ Init more template
 
 ## 📝 Dev Logs
+
+### - 2.1.0
+1. Add react useEffect generate `-e` flag
 
 ### - 2.0.0
 1. Default generating `.tsx`, `.ts` for all related files.
