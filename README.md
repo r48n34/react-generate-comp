@@ -20,8 +20,18 @@ Works on Windows / MacOS / Linux.
 4. No configs, easy to use with prompts.
 
 ### 💻 Setup / Instal
+Recommended: Install with `-g`
 ``` bash
 npm i -g react-generate-comp
+```
+
+Alternative: Use with `npm exec`
+```bash
+# With CLI
+npm exec react-generate-comp
+
+# Call With Args
+npm exec react-generate-comp -- -c HelloComp
 ```
 
 ### 🗺️ Usage
